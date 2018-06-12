@@ -4,6 +4,6 @@ Já pensou, por algum motivo não poder usar a classe Datetime do .NET? E justo 
 
 Com os seus **_41 testes automatizados_**, garantem a confiabilidade dos métodos. Nenhuma biblioteca ou classe DateTime do .NET é utilizado para validar as datas e horas.
 
-Use a classe Validate para validar se a data e hora de entrada são válida, antes de acionar os métodos da classe Datetime.
+Use a classe Validate para validar se a data e hora de entrada são válidas, antes de acionar os métodos da classe Datetime.
 
  Versão atualizada para **anos bissextos**.
