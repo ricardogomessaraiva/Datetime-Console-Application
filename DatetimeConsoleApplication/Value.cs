@@ -1,10 +1,11 @@
 ﻿using System;
+using ValidateClass;
 
 namespace DatetimeConsoleApplication
 {
-    public class ChoosingValue
+    public class Value
     {
-        public Values Choose(string chosen, Values values)
+        public Values Choosing(string chosen, Values values)
         {
             Validate validate = new Validate();
 

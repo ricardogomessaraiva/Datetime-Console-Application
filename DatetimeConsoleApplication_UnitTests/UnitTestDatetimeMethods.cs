@@ -1,6 +1,8 @@
 ﻿using System;
 using DatetimeConsoleApplication;
+using DatetimeConsoleApplication.Datetime;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using ValidateClass;
 
 namespace DatetimeConsoleApplication_UnitTests
 {
@@ -45,9 +47,9 @@ namespace DatetimeConsoleApplication_UnitTests
         }
         ///End
 
-        //Dot not validated bissext year
+        //Validated bissext year
         [TestMethod]
-        public void DoNotValidatedBissextYear()
+        public void ValidatedBissextYear()
         {
             //Output 29/02/2016 17:00
             datetime = DateTime.Parse("28/02/2016 17:00");
@@ -55,7 +57,7 @@ namespace DatetimeConsoleApplication_UnitTests
             string new_datetime = my_datetime.AddHours("28/02/2016 17:00", 24);
             string my_result = my_datetime.Format(new_datetime, 1);
 
-            Assert.AreNotEqual(microsoft_result, my_result);
+            Assert.AreEqual(microsoft_result, my_result);
         }
 
         //Begin -> validing DAY possibilities

@@ -1,37 +1,14 @@
 ﻿using System;
 using System.Linq;
 
-namespace DatetimeConsoleApplication
+namespace DatetimeConsoleApplication.Datetime
 {
     public class Datetime
-    {
-        //Atributos
+    {        
         private string Name;
         private int Number;
         private int LastDay;
-
         private Datetime date;
-
-        Validate validate = new Validate();
-
-        public Values Validation(string datetime)
-        {
-            Validate result = validate.ValidateDatetimeString(datetime);
-
-            while (!result.IsValid)
-            {
-                Console.WriteLine(result.Message);
-                Console.WriteLine();
-                Console.WriteLine("Digite uma nova data abaixo: ");
-                datetime = Console.ReadLine();
-                result = validate.ValidateDatetimeString(datetime);
-            }
-
-            Console.WriteLine(result.Message);
-            Console.WriteLine();
-
-            return new Values { Datetime = datetime };
-        }
 
         public string ApplyChanges(Values values)
         {
@@ -83,7 +60,7 @@ namespace DatetimeConsoleApplication
 
             while (value != 0)
             {
-                date = new Datetime().GetCurrentMonth(month);
+                date = new Datetime().Month(month, year);
 
                 hour++;
 
@@ -127,7 +104,7 @@ namespace DatetimeConsoleApplication
             //Input = "01/03/2010 23:00"
             //Output = "04/03/2010 17:40"
 
-            Datetime date = new Datetime();
+            date = new Datetime();
 
             int day = date.GetDay(datetime);
 
@@ -144,7 +121,7 @@ namespace DatetimeConsoleApplication
 
             while (value != 0)
             {
-                date = new Datetime().GetCurrentMonth(month);
+                date = new Datetime().Month(month, year);
                 minute++;
 
                 if (minute == 60)
@@ -188,7 +165,6 @@ namespace DatetimeConsoleApplication
                             day.ToString(), month.ToString(), year.ToString(), hour.ToString(), minute.ToString());
             }
 
-            //Retornando string vazia caso nao existe incremento
             return datimeOutup;
         }
 
@@ -214,7 +190,7 @@ namespace DatetimeConsoleApplication
 
             while (value != 0)
             {
-                date = new Datetime().GetCurrentMonth(month);
+                date = new Datetime().Month(month, year);
 
                 hour--;
 
@@ -232,7 +208,7 @@ namespace DatetimeConsoleApplication
 
                     if (day == 0)
                         //Pegar último dia do mês
-                        day = date.GetCurrentMonth(month).LastDay;
+                        day = date.Month(month, year).LastDay;
                 }
 
                 if (month == 0)
@@ -240,7 +216,7 @@ namespace DatetimeConsoleApplication
                     //Último dia do ano
                     year--;
                     month = 12;
-                    day = date.GetCurrentMonth(month).LastDay;
+                    day = date.Month(month, year).LastDay;
                 }
 
                 value--;
@@ -275,7 +251,7 @@ namespace DatetimeConsoleApplication
 
             while (value != 0)
             {
-                date = new Datetime().GetCurrentMonth(month);
+                date = new Datetime().Month(month, year);
 
                 minute--;
 
@@ -304,7 +280,7 @@ namespace DatetimeConsoleApplication
 
                     if (day == 0)
                         //Pegar último dia do mês
-                        day = date.GetCurrentMonth(month).LastDay;
+                        day = date.LastDay;
                 }
 
                 if (month == 0)
@@ -312,7 +288,7 @@ namespace DatetimeConsoleApplication
                     //Último dia do ano
                     year--;
                     month = 12;
-                    day = date.GetCurrentMonth(month).LastDay;
+                    day = date.LastDay;
                 }
 
                 value--;
@@ -353,27 +329,26 @@ namespace DatetimeConsoleApplication
             string hoursStr = hour < 10 ? "0" + hour.ToString() : hour.ToString();
             string minutesStr = minutes < 10 ? "0" + minutes.ToString() : minutes.ToString();
 
-            //Usando método nativo da classe string para formatar a data.
+            string monthName = date.Month(month, year).Name;
+
+            //Formatar a data.
             if (format_type == 2)
             {
-                //2 -> dd-mm-yyyy hh:mm 
-                string monthName = new Datetime().GetCurrentMonth(month).Name;
+                //2 -> dd-mm-yyyy hh:mm                                 
                 return string.Format("{0}-{1}-{2} {3}:{4}",
                     dayStr, monthStr, year.ToString(), hoursStr, minutesStr).ToUpper();
             }
 
             if (format_type == 3)
             {
-                //3 -> dd-Mes-yyyy hh:mm
-                string monthName = new Datetime().GetCurrentMonth(month).Name;
+                //3 -> dd-Mes-yyyy hh:mm                
                 return string.Format("{0}-{1}-{2} {3}:{4}",
                     dayStr, monthName, year.ToString(), hoursStr, minutesStr).ToUpper();
             }
 
             if (format_type == 4)
             {
-                // 4 -> dd de Mes de yyyy, hh hora(s) e mm minuto(s)");
-                string monthName = new Datetime().GetCurrentMonth(month).Name;
+                // 4 -> dd de Mes de yyyy, hh hora(s) e mm minuto(s)");                
                 return string.Format("{0} de {1} de {2}, {3} hora(s) e {4} minuto(s)",
                     dayStr, monthName, year.ToString(), hoursStr, minutesStr).ToUpper();
             }
@@ -382,15 +357,19 @@ namespace DatetimeConsoleApplication
             //Tipo 1 é formato default
             return string.Format("{0}/{1}/{2} {3}:{4}", dayStr, monthStr, year.ToString(), hoursStr, minutesStr);
         }
-
-        //Sobrecarga -> Por parametro int ou nome do mes
-        private Datetime GetCurrentMonth(int month)
+        
+        private Datetime Month(int month, int year)
         {
             if (month == 1)
                 return new Datetime() { LastDay = 31, Number = 1, Name = "Janeiro" };
 
             if (month == 2)
-                return new Datetime() { LastDay = 28, Number = 2, Name = "Feveiro" };
+            {
+                if (IsBissextYear(year))
+                    return new Datetime() { LastDay = 29, Number = 2, Name = "Fevereiro" };
+
+                return new Datetime() { LastDay = 28, Number = 2, Name = "Fevereiro" };
+            }
 
             if (month == 3)
                 return new Datetime() { LastDay = 31, Number = 3, Name = "Março" };
@@ -421,48 +400,8 @@ namespace DatetimeConsoleApplication
 
             return new Datetime() { LastDay = 31, Number = 12, Name = "Dezembro" };
 
-        }
+        }        
 
-        private Datetime GetCurrentMonth(string month)
-        {
-            if (month.ToLower() == "janeiro")
-                return new Datetime() { LastDay = 31, Number = 1, Name = "Janeiro" };
-
-            if (month.ToLower() == "fevereiro")
-                return new Datetime() { LastDay = 28, Number = 2, Name = "Feveiro" };
-
-            if (month.ToLower() == "março")
-                return new Datetime() { LastDay = 31, Number = 3, Name = "Março" };
-
-            if (month.ToLower() == "abril")
-                return new Datetime() { LastDay = 30, Number = 4, Name = "Abril" };
-
-            if (month.ToLower() == "maneiro")
-                return new Datetime() { LastDay = 31, Number = 5, Name = "Maio" };
-
-            if (month.ToLower() == "junho")
-                return new Datetime() { LastDay = 30, Number = 6, Name = "Junho" };
-
-            if (month.ToLower() == "julho")
-                return new Datetime() { LastDay = 31, Number = 7, Name = "Julho" };
-
-            if (month.ToLower() == "agosto")
-                return new Datetime() { LastDay = 31, Number = 8, Name = "Agosto" };
-
-            if (month.ToLower() == "setembro")
-                return new Datetime() { LastDay = 30, Number = 9, Name = "Setembro" };
-
-            if (month.ToLower() == "outubro")
-                return new Datetime() { LastDay = 31, Number = 10, Name = "Outubro" };
-
-            if (month.ToLower() == "novembro")
-                return new Datetime() { LastDay = 30, Number = 11, Name = "Novembro" };
-
-            return new Datetime() { LastDay = 31, Number = 12, Name = "Dezembro" };
-
-        }
-
-        //Métodos
         private int GetDay(string _datetime)
         {
             //Quebrar a string por Espaço para ter um array com 2 elementos - [0] => data; [1] tempo            
@@ -512,6 +451,20 @@ namespace DatetimeConsoleApplication
             //Retornando hora = posição 1 do array (último) convertido em Int16
             return Convert.ToInt16(time.Split(':').Last());
         }
+
+        private bool IsBissextYear(int year)
+        {
+            if (year % 4 == 0)
+                return true;
+            
+
+            if (year % 400 == 0)
+                return true;
+
+            return false;
+        }
+
+
 
     }
 }

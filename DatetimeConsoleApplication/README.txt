@@ -6,11 +6,11 @@ Github: https://github.com/ricardogomessaraiva
 
 ==============================================================================================
 
-Systemic Roles:
+Systemic Rules:
 * Input datetime has to be these format - dd/MM/yyyy HH:mm (Brazilian format). 
   Otherwise will be Date or time invalid.
 
-Important: The bissext year are do not validated;
+Important: The bissext year are now validated;
 
 Datetime Format types supported:
 * type 1 -> dd/mm/yyyy hh:mm  - Output:  [01/01/2000 11:30]

@@ -57,9 +57,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ChoosingFormat.cs" />
-    <Compile Include="ChoosingAddOrRemove.cs" />
-    <Compile Include="ChoosingValue.cs" />
+    <Compile Include="Format.cs" />
+    <Compile Include="Action.cs" />
+    <Compile Include="Value.cs" />
     <Compile Include="Initialize.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

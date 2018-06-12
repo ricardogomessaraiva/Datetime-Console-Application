@@ -1,6 +1,6 @@
 ﻿using System.Linq;
 
-namespace DatetimeConsoleApplication
+namespace ValidateClass
 {
     public class Validate
     {
@@ -9,6 +9,10 @@ namespace DatetimeConsoleApplication
 
         private bool ValidateDate(string datetime)
         {
+            /// <summary>ValidateDate is a method to validate a date.
+            /// <para>If converted was successfully it will return true otherwise return false</para>            
+            /// </summary>
+
             string date = GetDateString(datetime);
 
             //Seperando dia/mes/ano
@@ -80,6 +84,10 @@ namespace DatetimeConsoleApplication
 
         private bool ValidateTime(string datetime)
         {
+            /// <summary>ValidateTime is a method to validate a time of a datetime string.
+            /// <para>If converted was successfully it will return true otherwise return false</para>            
+            /// </summary>
+            /// 
             string time = datetime.Split(' ').Last();
             string[] timeTokens = time.Split(':');
 
@@ -138,15 +146,18 @@ namespace DatetimeConsoleApplication
 
         public int ConvertToInt(string value)
         {
+
+            /// <summary>ConvertToInt is a method to return a convert to string for int.
+            /// <para>If converted was successfully it will return a int otherwise return a -1</para>            
+            /// </summary>
+
             int _out = -1;
-            bool ret = int.TryParse(value, out _out);
+            bool converted = int.TryParse(value, out _out);
 
-            if (!ret)
-                //Conversão falhou.
-                return -1;
+            if (converted)
+                return int.Parse(value);
 
-            //Conversão efetuada.
-            return _out;
+            return -1;
         }
 
         public Validate ValidateDatetimeString(string datetime)

@@ -1,4 +1,5 @@
 ﻿using System;
+using ValidateClass;
 
 namespace DatetimeConsoleApplication
 {
@@ -32,24 +33,34 @@ namespace DatetimeConsoleApplication
                     datetime = Console.ReadLine();
                 }
 
-                //Inicio -> Validando data enviada pelo console
-                values = new Datetime().Validation(datetime);
+                //Inicio -> Validando data enviada pelo console                
+                Validate validate = new Validate().ValidateDatetimeString(datetime);
+                while (!validate.IsValid)
+                {
+                    Console.WriteLine(validate.Message);
+                    Console.WriteLine();
+                    Console.WriteLine("Digite uma nova data abaixo: ");
+                    datetime = Console.ReadLine();
+                    validate.ValidateDatetimeString(datetime);
+                }
+
+                values.Datetime = datetime;
 
                 ////Inicio -> Validando hora ou minutos                
                 Console.WriteLine("Escolha:\n 1 -> Adicionar em Hora(s) \n 2 -> Adicionar em Minuto(s) \n 3 -> Remover em Hora(s) \n 4 -> Remover em Minuto(s)");
-                values = new ChoosingAddOrRemove().Choose(Console.ReadLine(), values);
+                values = new Action().Choosing(Console.ReadLine(), values);
 
                 ////Inicio -> Validando quantidade a adicionar ou remover
                 Console.WriteLine("Digite um valor: ");
-                values = new ChoosingValue().Choose(Console.ReadLine(), values);                
+                values = new Value().Choosing(Console.ReadLine(), values);                
 
                 ////Inicio -> Validando escolha do formato.                
                 Console.WriteLine("Escolha abaixo qual formato deseja visualizar a nova data.");
                 Console.WriteLine(" 1 -> dd/mm/yyyy hh:mm \n 2 -> dd-mm-yyyy hh:mm \n 3 -> dd-Mes-yyyy hh:mm \n 4 -> dd de mm de yyyy, hh hora(s) e mm minuto(s)");
-                values = new ChoosingFormat().Choose(Console.ReadLine(), values);
+                values = new Format().Choosing(Console.ReadLine(), values);
 
                 ////Tudo certo e validado chamar metodo pra impressão               
-                string newDatetime = new Datetime().ApplyChanges(values);
+                string newDatetime = new Datetime.Datetime().ApplyChanges(values);
                 
                 Console.WriteLine("Data informada --> " + datetime);
                 Console.WriteLine("Data atualizada --> " + newDatetime);

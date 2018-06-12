@@ -1,3 +1,4 @@
+C:\Users\User\source\repos\DatetimeConsoleApplication\DatetimeConsoleApplication_UnitTests\obj\Debug\DatetimeConsoleApplication_UnitTests.csproj.CoreCompileInputs.cache
 C:\Users\User\source\repos\DatetimeConsoleApplication\DatetimeConsoleApplication_UnitTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
 C:\Users\User\source\repos\DatetimeConsoleApplication\DatetimeConsoleApplication_UnitTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
 C:\Users\User\source\repos\DatetimeConsoleApplication\DatetimeConsoleApplication_UnitTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
@@ -6,15 +7,14 @@ C:\Users\User\source\repos\DatetimeConsoleApplication\DatetimeConsoleApplication
 C:\Users\User\source\repos\DatetimeConsoleApplication\DatetimeConsoleApplication_UnitTests\bin\Debug\pt\Microsoft.VisualStudio.TestPlatform.TestFramework.resources.dll
 C:\Users\User\source\repos\DatetimeConsoleApplication\DatetimeConsoleApplication_UnitTests\bin\Debug\DatetimeConsoleApplication_UnitTests.dll
 C:\Users\User\source\repos\DatetimeConsoleApplication\DatetimeConsoleApplication_UnitTests\bin\Debug\DatetimeConsoleApplication_UnitTests.pdb
+C:\Users\User\source\repos\DatetimeConsoleApplication\DatetimeConsoleApplication_UnitTests\bin\Debug\DatetimeConsoleApplication.exe
 C:\Users\User\source\repos\DatetimeConsoleApplication\DatetimeConsoleApplication_UnitTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.dll
 C:\Users\User\source\repos\DatetimeConsoleApplication\DatetimeConsoleApplication_UnitTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll
+C:\Users\User\source\repos\DatetimeConsoleApplication\DatetimeConsoleApplication_UnitTests\bin\Debug\DatetimeConsoleApplication.pdb
+C:\Users\User\source\repos\DatetimeConsoleApplication\DatetimeConsoleApplication_UnitTests\bin\Debug\DatetimeConsoleApplication.exe.config
 C:\Users\User\source\repos\DatetimeConsoleApplication\DatetimeConsoleApplication_UnitTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.xml
 C:\Users\User\source\repos\DatetimeConsoleApplication\DatetimeConsoleApplication_UnitTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml
 C:\Users\User\source\repos\DatetimeConsoleApplication\DatetimeConsoleApplication_UnitTests\obj\Debug\DatetimeConsoleApplication_UnitTests.csprojAssemblyReference.cache
-C:\Users\User\source\repos\DatetimeConsoleApplication\DatetimeConsoleApplication_UnitTests\obj\Debug\DatetimeConsoleApplication_UnitTests.csproj.CoreCompileInputs.cache
 C:\Users\User\source\repos\DatetimeConsoleApplication\DatetimeConsoleApplication_UnitTests\obj\Debug\DatetimeConsoleApplication_UnitTests.csproj.CopyComplete
 C:\Users\User\source\repos\DatetimeConsoleApplication\DatetimeConsoleApplication_UnitTests\obj\Debug\DatetimeConsoleApplication_UnitTests.dll
 C:\Users\User\source\repos\DatetimeConsoleApplication\DatetimeConsoleApplication_UnitTests\obj\Debug\DatetimeConsoleApplication_UnitTests.pdb
-C:\Users\User\source\repos\DatetimeConsoleApplication\DatetimeConsoleApplication_UnitTests\bin\Debug\DatetimeConsoleApplication.exe
-C:\Users\User\source\repos\DatetimeConsoleApplication\DatetimeConsoleApplication_UnitTests\bin\Debug\DatetimeConsoleApplication.pdb
-C:\Users\User\source\repos\DatetimeConsoleApplication\DatetimeConsoleApplication_UnitTests\bin\Debug\DatetimeConsoleApplication.exe.config
